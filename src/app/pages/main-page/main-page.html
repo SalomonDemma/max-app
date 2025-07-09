@@ -1,0 +1,14 @@
+<h1 class="title">{{ title }}</h1>
+
+<app-card-holder-list></app-card-holder-list>
+
+@if (cardHolderState.selectedCardHolder() != null) {
+  <div class="selected-holder-info">
+    <h3>מחזיק כרטיס נבחר:</h3>
+    <div>ת"ז: {{ cardHolderState.selectedCardHolder()?.idNumber }}</div>
+    <div>שם מלא: {{ cardHolderState.selectedCardHolder()?.fullName }}</div>
+    <div>כתובת: {{ cardHolderState.selectedCardHolder()?.address }}</div>
+  </div>
+}
+
+<app-card-list [cardHolder]="cardHolderState.selectedCardHolder()"></app-card-list>

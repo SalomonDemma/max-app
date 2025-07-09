@@ -1,0 +1,30 @@
+<div class="table-container">
+  <h2 class="table-title text-center">{{title}}</h2>
+  <table class="holder-table">
+    <thead>
+      <tr>
+        <th>ת"ז מחזיק כרטיס</th>
+        <th>שם מלא</th>
+        <th>כתובת</th>
+        <th class="actions">פעולות</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (holder of state.cardHolders(); track holder.idNumber) {
+        <tr>
+          <td>{{ holder.idNumber }}</td>
+          <td>{{ holder.fullName }}</td>
+          <td>{{ holder.address }}</td>
+          <td class="actions">
+            <button mat-mini-fab (click)="selectCardHolder(holder)">הצג רשימת כרטיסים</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <div class="table-footer">
+    <button mat-raised-button color="primary">
+      הוסף חדש
+    </button>
+  </div>
+</div>
